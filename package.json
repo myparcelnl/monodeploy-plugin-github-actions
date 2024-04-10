@@ -5,7 +5,7 @@
   "description": "A monodeploy plugin to report release outcome to GitHub Actions",
   "repository": {
     "type": "git",
-    "url": "https://github.com/edielemoine/monodeploy-plugin-github-actions.git"
+    "url": "git+https://github.com/edielemoine/monodeploy-plugin-github-actions.git"
   },
   "license": "MIT",
   "author": "Edie Lemoine <edie.lemoine@gmail.com>",
