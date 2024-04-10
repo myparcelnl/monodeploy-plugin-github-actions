@@ -1,7 +1,8 @@
 {
   "name": "@edielemoine/monodeploy-plugin-github-actions",
-  "description": "A monodeploy plugin to report release outcome to GitHub Actions",
   "version": "1.0.0",
+  "private": false,
+  "description": "A monodeploy plugin to report release outcome to GitHub Actions",
   "repository": {
     "type": "git",
     "url": "https://github.com/edielemoine/monodeploy-plugin-github-actions.git"
@@ -22,9 +23,6 @@
   "scripts": {
     "build": "tsup-node src/index.ts --target node18 --format esm,cjs --out-dir dist"
   },
-  "dependencies": {
-    "@monodeploy/types": "^5.0.0"
-  },
   "release": {
     "branches": [
       "main"
@@ -36,6 +34,9 @@
       "@semantic-release/github",
       "@semantic-release/git"
     ]
+  },
+  "dependencies": {
+    "@monodeploy/types": "^5.0.0"
   },
   "devDependencies": {
     "@semantic-release/git": "^10.0.0",
@@ -50,5 +51,8 @@
   "packageManager": "yarn@4.1.1",
   "volta": {
     "node": "18.20.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
