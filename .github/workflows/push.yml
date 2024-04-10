@@ -1,0 +1,43 @@
+name: "Release new version 🚀"
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  release:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: myparcelnl/actions/setup-git-credentials@v4
+        id: credentials
+        with:
+          app-id: ${{ secrets.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ steps.credentials.outputs.token }}
+
+      - uses: myparcelnl/actions/yarn-install@v4
+        with:
+          node-version: ${{ vars.NODE_VERSION }}
+
+      - name: "Create build"
+        #language=bash
+        run: |
+          yarn build
+
+      - uses: myparcelnl/actions/semantic-release@v4
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        with:
+          token: ${{ steps.credentials.outputs.token }}
+          write-summary: true
