@@ -1,0 +1,54 @@
+{
+  "name": "@edielemoine/monodeploy-plugin-github-actions",
+  "description": "A monodeploy plugin to report release outcome to GitHub Actions",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/edielemoine/monodeploy-plugin-github-actions.git"
+  },
+  "license": "MIT",
+  "author": "Edie Lemoine <edie.lemoine@gmail.com>",
+  "type": "module",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.js"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup-node src/index.ts --target node18 --format esm,cjs --out-dir dist"
+  },
+  "dependencies": {
+    "@monodeploy/types": "^5.0.0"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      "@semantic-release/git"
+    ]
+  },
+  "devDependencies": {
+    "@semantic-release/git": "^10.0.0",
+    "@types/node": "^18.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^2.0.0",
+    "semantic-release": "^22.0.0",
+    "tapable": "^2.2.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0"
+  },
+  "packageManager": "yarn@4.1.1",
+  "volta": {
+    "node": "18.20.1"
+  }
+}

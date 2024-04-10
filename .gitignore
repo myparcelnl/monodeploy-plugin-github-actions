@@ -1,0 +1,16 @@
+node_modules/
+dist/
+coverage/
+
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+.idea/*
+!.idea/prettier.xml
+!.idea/codeStyles/
+!.idea/jsLinters/
+!.idea/jsLibraryMappings.xml
