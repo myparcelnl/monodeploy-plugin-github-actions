@@ -1,7 +1,6 @@
 {
   "name": "@edielemoine/monodeploy-plugin-github-actions",
   "version": "1.0.0",
-  "private": false,
   "description": "A monodeploy plugin to report release outcome to GitHub Actions",
   "repository": {
     "type": "git",
