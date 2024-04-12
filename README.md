@@ -1,6 +1,6 @@
 # Monodeploy GitHub Actions plugin
 
-This is a small plugin for [Monodeploy](https://github.com/tophat/monodeploy) that adds information about the release to `$GITHUB_OUTPUT`, for use with GitHub actions. This is useful for letting other actions/workflows depend on the result of a monodeploy run. For example, to only execute something if a release was done.
+This is a small plugin for [Monodeploy](https://github.com/tophat/monodeploy) that adds information about whether a release happened to `$GITHUB_OUTPUT`, for use with GitHub actions. This is useful for letting other actions/workflows depend on the result of a monodeploy run. For example, to only execute something if a release was done.
 
 ## Usage
 
@@ -28,7 +28,5 @@ module.exports = {
 - name: "Do something with output"
   if: steps.release.outputs.released == 'true'
   run: |
-    echo ${{ steps.release.outputs.lastVersion }}
-    echo ${{ steps.release.outputs.nextVersion }}
-    echo ${{ steps.release.outputs.releaseType }}
+    echo 'do something'
 ```
